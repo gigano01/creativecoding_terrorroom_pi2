@@ -184,8 +184,8 @@ function incoming(message, ws) {
 		state = STATES.procesQueue
 
 	} else if (decodedMessage.type === "color") {
-		if (decodedMessage.data.color !== null) {
-			console.log("Showing color")
+		if (decodedMessage.data.color !== null && decodedMessage.data.color !== undefined) {
+			console.log(`Showing color: ${decodedMessage.data.color}`)
 			resetQueue()
 			activeColor = decodedMessage.data.color
 			state = STATES.showColor
